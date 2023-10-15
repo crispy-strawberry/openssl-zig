@@ -30,12 +30,12 @@ jobs:
           cd $GITHUB_WORKSPACE
           curl -L -O https://ziglang.org/builds/zig-linux-x86_64-0.12.0-dev.926+3be8490d8.tar.xz
           tar -xf zig-linux-x86_64-0.12.0-dev.926+3be8490d8.tar.xz
-          export PATH=$GITHUB_WORKSPACE/zig-linux-x86_64-0.12.0-dev.926+3be8490d8/:$PATH
 
       # Runs a set of commands using the runners shell
       - name: Build OpenSSL
         run: |
           cd $GITHUB_WORKSPACE
+          export PATH=$GITHUB_WORKSPACE/zig-linux-x86_64-0.12.0-dev.926+3be8490d8/:$PATH
           export CC="zig cc"
           export CXX="zig c++"
           export AR="zig ar"
