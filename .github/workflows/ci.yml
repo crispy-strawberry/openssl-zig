@@ -40,8 +40,9 @@ jobs:
           export CXX="zig c++"
           export AR="zig ar"
           
-          git clone https://github.com/openssl/openssl.git
-          cd openssl
+          curl -L -O https://www.openssl.org/source/openssl-3.1.3.tar.gz
+          tar -xf openssl-3.1.3.tar.gz
+          cd openssl-3.1.3
           ./Configure
           make
 
@@ -49,6 +50,6 @@ jobs:
         uses: actions/upload-artifact@v3.1.3
         with: 
           path: |
-            ${{ github.workspace }}/openssl/*.a
-            ${{ github.workspace }}/openssl/*.so
+            ${{ github.workspace }}/openssl-3.1.3/*.a
+            ${{ github.workspace }}/openssl-3.1.3/*.so
           
